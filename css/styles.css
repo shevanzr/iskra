@@ -1,0 +1,293 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Oswald', sans-serif;
+	text-decoration: none;
+}
+
+body {
+	background-color: #ccc;
+}
+
+*::selection {
+	background-color: #4b0d91;
+	color: #fff;
+}
+
+header span::selection {
+	background-color: #2b0952;
+	color: #ccc;
+	text-shadow: 0px 0px 5px #ccc;
+}
+
+::-webkit-scrollbar-button {
+	background-image:url('');
+	background-repeat:no-repeat;
+	width:10px;
+	height:0px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #aaa;
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 0px;
+	background-color: #4b0d91;
+}
+
+
+::-webkit-scrollbar-thumb:hover{
+	background-color: #2b0952;
+}
+
+::-webkit-resizer{
+	background-image:url('');
+	background-repeat:no-repeat;
+	width:6px;
+	height:0px;
+}
+
+::-webkit-scrollbar{
+	width: 10px;
+}
+
+body.before_loading {
+	overflow: hidden;
+}
+
+.preloader {
+	width: 100vw;
+	height: 100vh;
+	background-color: #000;
+	z-index: 9999;
+	position: fixed;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.preloader span {
+	display: block;
+	height: 15px;
+	width: 15px;
+	background-color: #19e3d5;
+	margin: 0 7px;
+	border-radius: 10px;
+	animation: 1.2s preloaderAnimation infinite;
+}
+
+.preloader span:first-child {
+	animation-delay: .15s;
+}
+
+.preloader span:nth-child(2) {
+	animation-delay: .3s;
+}
+
+.preloader span:nth-child(3) {
+	animation-delay: .45s;
+}
+
+.preloader span:nth-child(4) {
+	animation-delay: .6s;
+}
+
+.preloader span:last-child {
+	animation-delay: .75s;
+}
+
+.loaded_hiding {
+	transition: 1s;
+	opacity: 0;
+}
+
+.loaded {
+	display: none;
+}
+
+/* main styles */
+
+header {
+	height: 100px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+	font-size: calc(50px + 14 * (100vw / 1280));
+	background-color: #eee;
+	color: #fff;
+	font-weight: 700;
+	border-bottom: 4px solid #4b0d91;
+}
+
+header span {
+	background-color: #4b0d91;
+	padding-left: 25px;
+	padding-right: 25px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.photo_wrapper {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.form-master {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.photo_wrap {
+	overflow: hidden;
+	position: relative;
+}
+
+.photo {
+	background: center center no-repeat;
+	background-size: cover;
+	transition: 0.4s;
+	width: 100%;
+	height: 100%;
+}
+
+.photo-1, .photo-7, .photo-13 {
+	background-image: url(../imgs/img1.jpg)
+}
+
+.photo-2, .photo-8, .photo-14 {
+	background-image: url(../imgs/img2.jpg)
+}
+
+.photo-3, .photo-9, .photo-15 {
+	background-image: url(../imgs/img3.jpg)
+}
+
+.photo-4, .photo-10, .photo-16 {
+	background-image: url(../imgs/img4.jpg)
+}
+
+.photo-5, .photo-11, .photo-17 {
+	background-image: url(../imgs/img5.jpg)
+}
+
+.photo-6, .photo-12, .photo-formmaster {
+	background-image: url(../imgs/img6.jpg)
+}
+
+.photo_wrap:hover .photo {
+	transform:scale(1.125);
+}
+
+.descr {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.75);
+	color: #fff;
+	opacity: 0;
+	display: flex;
+	transition: 0.4s;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.photo_wrap:hover .descr {
+	opacity: 1;
+	top: 0;
+	left: 0;
+}
+
+/* breakpoints */
+
+/* Large desktops and laptops */
+@media screen and (min-width: 1200px) {
+
+	.photo_wrap {
+		width: 25%;
+		height: 25vw;
+	}
+
+}
+
+/* Landscape tablets and medium desktops */
+@media screen and (max-width: 1199px) {
+
+	.photo_wrap {
+		width: 25%;
+		height: 25vw;
+	}
+
+}
+
+/* Portrait tablets and small desktops */
+@media screen and (max-width: 991px) {
+
+	
+
+}
+
+/* Landscape phones and portrait tablets */
+@media screen and (max-width: 767px) {
+
+	.photo_wrap {
+		width: 33.333%;
+		height: 33.333vw;
+	}
+
+}
+
+/* Portrait phones and smaller */
+@media screen and (max-width: 480px) {
+
+	.photo_wrap {
+		width: 100%;
+		height: 100vw;
+	}
+
+	header span {
+		width: 100%;
+	}
+
+	header {
+		border: 0;
+	}
+
+}
+
+/* preloader animation */
+
+@keyframes preloaderAnimation {
+
+	0% {
+		height: 15px;
+		background: #19e3d5;
+	}
+
+	50% {
+		height: 60px;
+		background: #d33deb;
+	}
+
+	100% {
+		height: 15px;
+		background: #19e3d5;
+	}
+	
+}
